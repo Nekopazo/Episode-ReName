@@ -197,7 +197,10 @@ if not target_path.startswith(r'\\'):
 
 # 忽略字符串, 用于处理剧集名字中带数字的文件, 提取信息时忽略这些字符串
 # ignore 文件必须用utf-8编码
-ignores = []
+ignores = [
+    "[VCB-Studio]", "[ANK-Raws]",  # 原有忽略词
+    "h264", "x264", "h265", "x265", "flac", "1080", "720"  # 新增技术参数
+]
 ignore_file = os.path.join(application_path, 'ignore')
 if os.path.exists(ignore_file):
     with open(ignore_file, 'r', encoding='utf-8') as f:
